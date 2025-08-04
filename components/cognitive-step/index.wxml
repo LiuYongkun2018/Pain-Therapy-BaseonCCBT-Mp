@@ -3,10 +3,12 @@
   <!-- 进度条 -->
   <view class="progress-container">
     <view class="progress-label">学习进度</view>
-    <view class="progress-bar">
-      <view class="progress-fill" style="width: {{currentProgress}}%"></view>
+    <view class="progress-wrapper">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{currentProgress}}%"></view>
+      </view>
+      <view class="progress-text">{{currentProgress}}%</view>
     </view>
-    <view class="progress-text">{{currentProgress}}%</view>
   </view>
 
   <!-- 学习内容 -->

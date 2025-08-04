@@ -1,17 +1,21 @@
 /* components/cognitive-step/index.wxss */
 .cognitive-step-container {
-  padding: 40rpx;
+  width: 100%;
+  padding: 40rpx 16rpx;
+  box-sizing: border-box;
   background: #f8f9fa;
   min-height: 100vh;
 }
 
 /* 进度条样式 */
 .progress-container {
+  width: 100%;
   background: #ffffff;
   border-radius: 16rpx;
   padding: 32rpx;
   margin-bottom: 40rpx;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .progress-label {
@@ -22,13 +26,20 @@
   text-align: center;
 }
 
+/* 进度条左右布局 */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .progress-bar {
-  width: 100%;
+  flex: 1;
   height: 12rpx;
   background: #e9ecef;
   border-radius: 6rpx;
   overflow: hidden;
-  margin-bottom: 16rpx;
+  margin-right: 20rpx;
 }
 
 .progress-fill {
@@ -42,15 +53,19 @@
   font-size: 24rpx;
   color: #007aff;
   font-weight: 600;
-  text-align: center;
+  flex-shrink: 0;
+  min-width: 60rpx;
+  text-align: right;
 }
 
 /* 内容容器 */
 .content-container {
+  width: 100%;
   background: #ffffff;
   border-radius: 16rpx;
   padding: 32rpx;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 /* 内容项 */
