@@ -32,7 +32,7 @@
         </view>
         
         <!-- 点击提示 -->
-        <view wx:if="{{index === displayedItems.length - 1}}" class="click-hint">
+        <view wx:if="{{index === displayedItems.length - 1 && currentProgress < 100}}" class="click-hint">
           <text class="hint-text">点击继续</text>
           <view class="hint-arrow">→</view>
         </view>
