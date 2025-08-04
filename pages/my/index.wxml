@@ -1,4 +1,14 @@
 
-  <view class="container">
-    个人中心55
-  </view>
+<navigation-bar 
+  title="个人中心" 
+  background="#ffffff" 
+  color="#333333"
+  back="{{false}}"
+  home-button="{{false}}"
+></navigation-bar>
+
+<view class="container">
+
+  <text class="info-text">信息待完善</text>
+
+</view>

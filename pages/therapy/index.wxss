@@ -1,23 +1,13 @@
 /* pages/therapy/index.wxss */
+
 .container {
-  margin: 0 16rpx;
-  width: 718rpx;
+  margin-top: calc(44px + env(safe-area-inset-top));
+  padding: 20rpx;
   background-color: #f8f9fa;
-  
-}
-
-.header {
-  width: 100%;
-  margin-bottom: 48rpx;
-  text-align: center;
-}
-
-.title {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: #333333;
+  min-height: calc(100vh - 44px - env(safe-area-inset-top));
 }
 
 .quiz-question {
-   width: 100%;
+  width: 100%;
+  margin-top: 96rpx;
 }

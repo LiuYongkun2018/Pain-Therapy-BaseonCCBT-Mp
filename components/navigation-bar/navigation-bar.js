@@ -97,6 +97,12 @@ Component({
         })
       }
       this.triggerEvent('back', { delta: data.delta }, {})
+    },
+    home() {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+      this.triggerEvent('home', {}, {})
     }
   },
 })

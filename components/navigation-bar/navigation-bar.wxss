@@ -2,6 +2,13 @@
   --weui-FG-0:rgba(0,0,0,.9);
   --height: 44px;
   --left: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #e9ecef;
 }
 .weui-navigation-bar .android {
   --height: 48px;

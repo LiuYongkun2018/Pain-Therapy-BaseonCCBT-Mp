@@ -1,3 +1,11 @@
+<navigation-bar 
+  title="指南" 
+  background="#ffffff" 
+  color="#333333"
+  back="{{false}}"
+  home-button="{{false}}"
+></navigation-bar>
+
 <view class="page-body">
   <view class="page-section tc">
     <video

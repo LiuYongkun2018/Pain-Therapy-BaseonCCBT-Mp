@@ -25,7 +25,8 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "quiz-judgment-question": "components/quiz-judgment-question/index"
+    "quiz-judgment-question": "components/quiz-judgment-question/index",
+    "navigation-bar": "components/navigation-bar/navigation-bar"
   },
   "style": "v2",
   "renderer": "skyline",
