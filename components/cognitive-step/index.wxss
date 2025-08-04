@@ -1,14 +1,17 @@
 /* components/cognitive-step/index.wxss */
 .cognitive-step-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 40rpx 16rpx;
+  height: 100%;
+  padding: 40rpx 16rpx 0 16rpx;
   box-sizing: border-box;
   background: #f8f9fa;
-  min-height: 100vh;
 }
 
 /* 进度条样式 */
 .progress-container {
+  flex-shrink: 0; /* 不收缩 */
   width: 100%;
   background: #ffffff;
   border-radius: 16rpx;
@@ -60,12 +63,16 @@
 
 /* 内容容器 */
 .content-container {
+  flex: 1; /* 占据剩余空间 */
   width: 100%;
   background: #ffffff;
   border-radius: 16rpx;
   padding: 32rpx;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  margin-bottom: 40rpx;
+  /* scroll-view 特有样式 */
+  height: 0; /* 配合flex: 1 使用 */
 }
 
 /* 内容项 */
@@ -200,6 +207,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 16rpx;
+  margin-bottom: 20rpx; /* 适当的底部margin */
   padding: 12rpx 24rpx;
   background: #007aff;
   border-radius: 24rpx;
@@ -237,6 +245,7 @@
   background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   border-radius: 16rpx;
   margin-top: 32rpx;
+  margin-bottom: 40rpx; /* 确保有足够的滚动空间 */
 }
 
 .completion-icon {

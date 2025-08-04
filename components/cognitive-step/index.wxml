@@ -12,7 +12,7 @@
   </view>
 
   <!-- 学习内容 -->
-  <view class="content-container">
+  <scroll-view scroll-y="{{true}}" class="content-container">
     <view 
       wx:for="{{displayedItems}}" 
       wx:key="{{index}}"
@@ -44,5 +44,5 @@
       <view class="completion-icon">✓</view>
       <view class="completion-text">恭喜！您已完成所有认知学习内容</view>
     </view>
-  </view>
+  </scroll-view>
 </view>

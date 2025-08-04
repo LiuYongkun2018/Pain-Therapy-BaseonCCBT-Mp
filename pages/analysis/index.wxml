@@ -6,10 +6,10 @@
   home-button="{{false}}"
 ></navigation-bar>
 
-<view class="container">
+<scroll-view scroll-y="{{true}}" class="container">
   <cognitive-step 
     class="cognitive-step-container"
     steps="{{steps}}" 
     bind:completed="onLearningCompleted"
   ></cognitive-step>
-</view>
+</scroll-view>
