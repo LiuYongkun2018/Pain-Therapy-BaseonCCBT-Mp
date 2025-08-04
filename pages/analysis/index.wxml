@@ -1,15 +1,10 @@
-
 <navigation-bar 
-  title="个人中心" 
+  title="分析" 
   background="#ffffff" 
   color="#333333"
   back="{{false}}"
   home-button="{{false}}"
 ></navigation-bar>
-
 <view class="container">
-
-  <text class="info-text">信息待完善</text>
-
+  <text>分析</text>
 </view>
-

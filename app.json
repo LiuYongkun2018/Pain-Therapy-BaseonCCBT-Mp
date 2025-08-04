@@ -2,13 +2,19 @@
   "pages": [
     "pages/index/index",
     "pages/therapy/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/analysis/index"
+
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "指南"
+      },
+      {
+        "pagePath":"pages/analysis/index",
+        "text": "分析"
       },
       {
         "pagePath": "pages/therapy/index",
