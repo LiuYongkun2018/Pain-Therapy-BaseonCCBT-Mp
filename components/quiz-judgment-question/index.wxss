@@ -43,6 +43,9 @@
 /* 选项容器 */
 .options-container {
     margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+    gap: 15rpx;
 }
 
 /* 选项样式 */
@@ -50,15 +53,11 @@
     display: flex;
     align-items: center;
     padding: 24rpx;
-    margin-bottom: 20rpx;
     border: 2rpx solid #e9ecef;
     border-radius: 12rpx;
     background-color: #ffffff;
     transition: all 0.3s ease;
-}
-
-.option-item:last-child {
-    margin-bottom: 0;
+    min-height: 80rpx;
 }
 
 .option-item:hover {
@@ -94,9 +93,36 @@
 
 /* 选项文本 */
 .option-text {
-    font-size: 36rpx;
+    font-size: 30rpx;
     color: #333333;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.5;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    flex: 1;
+}
+
+/* 解释区域样式 */
+.explanation-container {
+    margin-top: 30rpx;
+    padding: 30rpx;
+    background-color: #f8f9ff;
+    border-radius: 12rpx;
+    border-left: 4rpx solid #007aff;
+}
+
+.explanation-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #007aff;
+    margin-bottom: 15rpx;
+}
+
+.explanation-text {
+    font-size: 26rpx;
+    line-height: 1.6;
+    color: #555555;
 }
 
 /* 按钮容器 */

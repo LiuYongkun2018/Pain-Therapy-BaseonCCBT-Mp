@@ -15,22 +15,21 @@
     <!-- 选项区域 -->
     <view class="options-container">
       <view 
-        class="option-item {{questions[currentQuestionIndex].userAnswer === 'A' ? 'selected' : ''}}"
-        data-option="A"
+        wx:for="{{optionKeys}}" 
+        wx:key="*this"
+        class="option-item {{questions[currentQuestionIndex].userAnswer === item ? 'selected' : ''}}"
+        data-option="{{item}}"
         bindtap="selectAnswer"
       >
-        <view class="option-label">A</view>
-        <text class="option-text">{{questions[currentQuestionIndex].options.A}}</text>
+        <view class="option-label">{{item}}</view>
+        <text class="option-text">{{questions[currentQuestionIndex].options[item]}}</text>
       </view>
+    </view>
 
-      <view 
-        class="option-item {{questions[currentQuestionIndex].userAnswer === 'B' ? 'selected' : ''}}"
-        data-option="B"
-        bindtap="selectAnswer"
-      >
-        <view class="option-label">B</view>
-        <text class="option-text">{{questions[currentQuestionIndex].options.B}}</text>
-      </view>
+    <!-- 答案解释区域 -->
+    <view class="explanation-container" wx:if="{{questions[currentQuestionIndex].userAnswer && questions[currentQuestionIndex].explanation}}">
+      <view class="explanation-title">答案解释：</view>
+      <view class="explanation-text">{{questions[currentQuestionIndex].explanation}}</view>
     </view>
 
     <!-- 操作按钮 -->

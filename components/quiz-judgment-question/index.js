@@ -7,8 +7,8 @@ Component({
     // 可以通过父组件传入题目数据
     questionData: {
       type: Array,
-      value: []
-    }
+      value: [],
+    },
   },
 
   /**
@@ -67,14 +67,55 @@ Component({
         correctAnswer: "A",
         userAnswer: null,
       },
+      {
+        id: 6,
+        text: "6.关于慢性疼痛的治疗原则，以下哪项描述最准确？",
+        options: {
+          A: "应长期使用强效阿片类药物作为一线治疗",
+          B: "推荐采用多模式镇痛（药物与非药物疗法结合）",
+          C: "物理治疗对慢性疼痛完全无效",
+          D: "所有慢性疼痛患者都需要手术治疗",
+        },
+        correctAnswer: "B",
+        userAnswer: null,
+        explanation:
+          "慢性疼痛推荐采用多学科综合治疗，包括药物（如NSAIDs、抗抑郁药）、物理治疗、心理干预等。阿片类药物仅作为二线选择，手术治疗仅适用于特定病例。",
+      },
+      {
+        id: 7,
+        text: "7.以下哪种情况最适合使用阿片类药物进行疼痛管理？",
+        options: {
+          A: "轻度关节疼痛",
+          B: "慢性下背痛的初次治疗",
+          C: "癌症相关的中重度疼痛",
+          D: "运动后的肌肉酸痛",
+        },
+        correctAnswer: "C",
+        userAnswer: null,
+        explanation:
+          "阿片类药物主要用于中重度疼痛，特别是癌症相关疼痛。对于轻度疼痛或慢性疼痛的初次治疗，通常首选非阿片类药物。",
+      },
     ],
     currentQuestionIndex: 0, // 当前题目索引
+    optionKeys: [], // 当前题目的选项键
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    /**
+     * 更新当前题目的选项键
+     */
+    updateOptionKeys() {
+      const currentQuestion = this.data.questions[this.data.currentQuestionIndex];
+      if (currentQuestion && currentQuestion.options) {
+        const optionKeys = Object.keys(currentQuestion.options);
+        this.setData({
+          optionKeys: optionKeys
+        });
+      }
+    },
     /**
      * 用户选择答案
      */
@@ -86,9 +127,9 @@ Component({
 
       // 更新用户答案
       questions[currentIndex].userAnswer = option;
-      
+
       this.setData({
-        questions: questions
+        questions: questions,
       });
 
       // 检查答案是否正确
@@ -101,15 +142,15 @@ Component({
     checkAnswer(question, userAnswer) {
       if (userAnswer === question.correctAnswer) {
         wx.showToast({
-          title: '恭喜您 答对了',
-          icon: 'success',
-          duration: 1000
+          title: "恭喜您 答对了",
+          icon: "success",
+          duration: 1000,
         });
       } else {
         wx.showToast({
-          title: '回答错误',
-          icon: 'error',
-          duration: 1000
+          title: "回答错误",
+          icon: "error",
+          duration: 1000,
         });
       }
     },
@@ -120,16 +161,17 @@ Component({
     nextQuestion() {
       const currentIndex = this.data.currentQuestionIndex;
       const totalQuestions = this.data.questions.length;
-      
+
       if (currentIndex < totalQuestions - 1) {
         this.setData({
-          currentQuestionIndex: currentIndex + 1
+          currentQuestionIndex: currentIndex + 1,
         });
+        this.updateOptionKeys();
       } else {
         wx.showModal({
-          title: '提示',
-          content: '已完成所有题目！',
-          showCancel: false
+          title: "提示",
+          content: "已完成所有题目！",
+          showCancel: false,
         });
       }
     },
@@ -139,11 +181,12 @@ Component({
      */
     prevQuestion() {
       const currentIndex = this.data.currentQuestionIndex;
-      
+
       if (currentIndex > 0) {
         this.setData({
-          currentQuestionIndex: currentIndex - 1
+          currentQuestionIndex: currentIndex - 1,
         });
+        this.updateOptionKeys();
       }
     },
 
@@ -153,13 +196,13 @@ Component({
     resetAnswer() {
       const currentIndex = this.data.currentQuestionIndex;
       const questions = this.data.questions;
-      
+
       questions[currentIndex].userAnswer = null;
-      
+
       this.setData({
-        questions: questions
+        questions: questions,
       });
-    }
+    },
   },
 
   /**
@@ -168,11 +211,16 @@ Component({
   lifetimes: {
     attached() {
       // 如果有传入的题目数据，则使用传入的数据
-      if (this.properties.questionData && this.properties.questionData.length > 0) {
+      if (
+        this.properties.questionData &&
+        this.properties.questionData.length > 0
+      ) {
         this.setData({
-          questions: this.properties.questionData
+          questions: this.properties.questionData,
         });
       }
-    }
-  }
+      // 初始化选项键
+      this.updateOptionKeys();
+    },
+  },
 });
