@@ -24,6 +24,9 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
+  "usingComponents": {
+    "quiz-judgment-question": "components/quiz-judgment-question/index"
+  },
   "style": "v2",
   "renderer": "skyline",
   "rendererOptions": {

@@ -1,5 +1,18 @@
 /* pages/therapy/index.wxss */
 .container {
-  margin-top: 48rpx;
-  color: red
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 40rpx 30rpx 20rpx;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #e9ecef;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
 }

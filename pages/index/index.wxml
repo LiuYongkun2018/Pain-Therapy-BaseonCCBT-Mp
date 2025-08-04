@@ -1,6 +1,6 @@
 
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    学习指南
+    <quiz-judgment-question></quiz-judgment-question>
   </view>
 </scroll-view>
