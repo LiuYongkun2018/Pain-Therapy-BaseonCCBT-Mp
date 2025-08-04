@@ -1,10 +1,14 @@
 <navigation-bar 
-  title="分析" 
+  title="知识学习" 
   background="#ffffff" 
   color="#333333"
   back="{{false}}"
   home-button="{{false}}"
 ></navigation-bar>
+
 <view class="container">
-  <text>分析</text>
+  <cognitive-step 
+    steps="{{steps}}" 
+    bind:completed="onLearningCompleted"
+  ></cognitive-step>
 </view>

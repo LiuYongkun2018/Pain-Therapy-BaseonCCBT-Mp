@@ -32,6 +32,7 @@
   },
   "usingComponents": {
     "quiz-judgment-question": "components/quiz-judgment-question/index",
+    "cognitive-step": "components/cognitive-step/index",
     "navigation-bar": "components/navigation-bar/navigation-bar"
   },
   "style": "v2",

@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "微信小程序开发者工具预览",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"请在微信开发者工具中打开项目进行预览测试"
+			],
+			"group": "build",
+			"isBackground": false
+		}
+	]
+}

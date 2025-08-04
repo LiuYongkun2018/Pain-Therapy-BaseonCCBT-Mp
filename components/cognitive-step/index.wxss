@@ -1,0 +1,237 @@
+/* components/cognitive-step/index.wxss */
+.cognitive-step-container {
+  padding: 40rpx;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* 进度条样式 */
+.progress-container {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.progress-label {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12rpx;
+  background: #e9ecef;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #007aff 0%, #0056d3 100%);
+  border-radius: 6rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: #007aff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 内容容器 */
+.content-container {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 内容项 */
+.content-item {
+  display: flex;
+  margin-bottom: 32rpx;
+  position: relative;
+}
+
+.content-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 指示器 */
+.item-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 24rpx;
+  position: relative;
+}
+
+.indicator-dot {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.title-dot {
+  background: #007aff;
+  border: 4rpx solid #007aff;
+}
+
+.sub-dot {
+  background: #6c757d;
+  border: 4rpx solid #6c757d;
+}
+
+.completed .title-dot,
+.completed .sub-dot {
+  background: #28a745;
+  border-color: #28a745;
+}
+
+.active .title-dot {
+  background: #007aff;
+  border-color: #007aff;
+  animation: pulse 2s infinite;
+}
+
+.active .sub-dot {
+  background: #6c757d;
+  border-color: #6c757d;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.indicator-line {
+  width: 4rpx;
+  height: 40rpx;
+  background: #e9ecef;
+  margin-top: 8rpx;
+}
+
+.completed .indicator-line {
+  background: #28a745;
+}
+
+/* 内容区域 */
+.item-content {
+  flex: 1;
+  padding-top: 8rpx;
+}
+
+.item-text {
+  line-height: 1.6;
+  word-break: break-all;
+  margin-bottom: 16rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  padding: 16rpx 20rpx;
+  background: linear-gradient(135deg, #007aff 0%, #0056d3 100%);
+  color: #ffffff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.sub-text {
+  font-size: 28rpx;
+  color: #495057;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  border-left: 6rpx solid #6c757d;
+}
+
+.active .title-text {
+  background: linear-gradient(135deg, #007aff 0%, #0056d3 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.active .sub-text {
+  background: #f0f8ff;
+  border-left-color: #007aff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 点击提示 */
+.click-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16rpx;
+  padding: 12rpx 24rpx;
+  background: #007aff;
+  border-radius: 24rpx;
+  animation: bounce 2s infinite;
+}
+
+.hint-text {
+  font-size: 24rpx;
+  color: #ffffff;
+  margin-right: 8rpx;
+}
+
+.hint-arrow {
+  font-size: 24rpx;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8rpx);
+  }
+  60% {
+    transform: translateY(-4rpx);
+  }
+}
+
+/* 完成提示 */
+.completion-message {
+  text-align: center;
+  padding: 40rpx;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border-radius: 16rpx;
+  margin-top: 32rpx;
+}
+
+.completion-icon {
+  font-size: 48rpx;
+  color: #ffffff;
+  margin-bottom: 16rpx;
+}
+
+.completion-text {
+  font-size: 28rpx;
+  color: #ffffff;
+  font-weight: 600;
+}
