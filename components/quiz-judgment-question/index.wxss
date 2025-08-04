@@ -1,193 +1,194 @@
 /* components/quiz-judgment-question/index.wxss */
 
 .quiz-container {
-  padding: 30rpx;
-  background-color: #f8f9fa;
-  min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24rpx;
+    background-color: #f8f9fa;
 }
 
 /* 进度显示 */
 .quiz-progress {
-  text-align: center;
-  margin-bottom: 40rpx;
-  padding: 20rpx;
-  background-color: #ffffff;
-  border-radius: 12rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 40rpx;
+    padding: 20rpx;
+    background-color: #ffffff;
+    border-radius: 12rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 }
 
 .progress-text {
-  font-size: 28rpx;
-  color: #666666;
-  font-weight: 500;
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: 500;
 }
 
 /* 题目卡片 */
 .question-card {
-  background-color: #ffffff;
-  border-radius: 16rpx;
-  padding: 40rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    border-radius: 16rpx;
+    padding: 40rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
 }
 
 /* 题目文本 */
 .question-text {
-  font-size: 32rpx;
-  line-height: 1.6;
-  color: #333333;
-  margin-bottom: 40rpx;
-  font-weight: 500;
+    font-size: 32rpx;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 40rpx;
+    font-weight: 500;
 }
 
 /* 选项容器 */
 .options-container {
-  margin-bottom: 40rpx;
+    margin-bottom: 40rpx;
 }
 
 /* 选项样式 */
 .option-item {
-  display: flex;
-  align-items: center;
-  padding: 24rpx;
-  margin-bottom: 20rpx;
-  border: 2rpx solid #e9ecef;
-  border-radius: 12rpx;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 24rpx;
+    margin-bottom: 20rpx;
+    border: 2rpx solid #e9ecef;
+    border-radius: 12rpx;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .option-item:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .option-item:hover {
-  border-color: #007aff;
-  background-color: #f0f8ff;
+    border-color: #007aff;
+    background-color: #f0f8ff;
 }
 
 .option-item.selected {
-  border-color: #007aff;
-  background-color: #e6f3ff;
-  box-shadow: 0 2rpx 8rpx rgba(0, 122, 255, 0.2);
+    border-color: #007aff;
+    background-color: #e6f3ff;
+    box-shadow: 0 2rpx 8rpx rgba(0, 122, 255, 0.2);
 }
 
 /* 选项标签 */
 .option-label {
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  background-color: #007aff;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28rpx;
-  font-weight: bold;
-  margin-right: 20rpx;
-  flex-shrink: 0;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    background-color: #007aff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-right: 20rpx;
+    flex-shrink: 0;
 }
 
 .option-item.selected .option-label {
-  background-color: #0056cc;
+    background-color: #0056cc;
 }
 
 /* 选项文本 */
 .option-text {
-  font-size: 36rpx;
-  color: #333333;
-  font-weight: 600;
+    font-size: 36rpx;
+    color: #333333;
+    font-weight: 600;
 }
 
 /* 按钮容器 */
 .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20rpx;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20rpx;
+    flex-wrap: wrap;
 }
 
 /* 导航按钮 */
 .nav-button {
-  min-width: 160rpx;
-  height: 80rpx;
-  font-size: 28rpx;
-  border-radius: 40rpx;
-  border: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+    min-width: 160rpx;
+    height: 80rpx;
+    font-size: 28rpx;
+    border-radius: 40rpx;
+    border: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 /* 上一题按钮 */
 .prev-button {
-  background-color: #6c757d;
-  color: #ffffff;
+    background-color: #6c757d;
+    color: #ffffff;
 }
 
 .prev-button:hover {
-  background-color: #5a6268;
+    background-color: #5a6268;
 }
 
 /* 重新选择按钮 */
 .reset-button {
-  background-color: #ffc107;
-  color: #212529;
+    background-color: #ffc107;
+    color: #212529;
 }
 
 .reset-button:hover {
-  background-color: #e0a800;
+    background-color: #e0a800;
 }
 
 /* 下一题按钮 */
 .next-button {
-  background-color: #007aff;
-  color: #ffffff;
+    background-color: #007aff;
+    color: #ffffff;
 }
 
 .next-button:hover {
-  background-color: #0056cc;
+    background-color: #0056cc;
 }
 
 /* 完成按钮 */
 .finish-button {
-  background-color: #28a745;
-  color: #ffffff;
+    background-color: #28a745;
+    color: #ffffff;
 }
 
 .finish-button:hover {
-  background-color: #218838;
+    background-color: #218838;
 }
 
 /* 响应式设计 */
 @media (max-width: 480px) {
-  .quiz-container {
-    padding: 20rpx;
-  }
-  
-  .question-card {
-    padding: 30rpx;
-  }
-  
-  .question-text {
-    font-size: 30rpx;
-  }
-  
-  .option-text {
-    font-size: 32rpx;
-  }
-  
-  .button-container {
-    flex-direction: column;
-    gap: 15rpx;
-  }
-  
-  .nav-button {
-    width: 100%;
-    height: 88rpx;
-    font-size: 30rpx;
-  }
+    .quiz-container {
+        padding: 20rpx;
+    }
+
+    .question-card {
+        padding: 30rpx;
+    }
+
+    .question-text {
+        font-size: 30rpx;
+    }
+
+    .option-text {
+        font-size: 32rpx;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15rpx;
+    }
+
+    .nav-button {
+        width: 100%;
+        height: 88rpx;
+        font-size: 30rpx;
+    }
 }

@@ -1,8 +1,7 @@
 <view class="container">
-  <view class="header">
+  <!-- <view class="header">
     <text class="title">疼痛认知测试</text>
-  </view>
-  
+  </view> -->
   <!-- 使用判断题组件 -->
-  <quiz-judgment-question></quiz-judgment-question>
+  <quiz-judgment-question class="quiz-question"></quiz-judgment-question>
 </view>
