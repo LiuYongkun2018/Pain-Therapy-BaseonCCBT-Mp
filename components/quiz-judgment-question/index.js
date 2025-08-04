@@ -103,13 +103,13 @@ Component({
         wx.showToast({
           title: '恭喜您 答对了',
           icon: 'success',
-          duration: 2000
+          duration: 1000
         });
       } else {
         wx.showToast({
           title: '回答错误',
           icon: 'error',
-          duration: 2000
+          duration: 1000
         });
       }
     },
