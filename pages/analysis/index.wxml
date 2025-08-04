@@ -8,6 +8,7 @@
 
 <view class="container">
   <cognitive-step 
+    class="cognitive-step-container"
     steps="{{steps}}" 
     bind:completed="onLearningCompleted"
   ></cognitive-step>

@@ -1,7 +1,13 @@
 /* pages/analysis/index.wxss */
 .container {
+  width: 728rpx;
+  margin: 0 16rpx;
   margin-top: 128rpx;
   background: #f8f9fa;
-  min-height: 100vh;
   padding: 0;
+
+}
+.cognitive-step-container {
+    width: 100%;
+      background: red;
 }
