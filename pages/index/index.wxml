@@ -1,0 +1,6 @@
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    学习指南
+  </view>
+</scroll-view>

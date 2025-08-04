@@ -1,0 +1,5 @@
+/* pages/therapy/index.wxss */
+.container {
+  margin-top: 48rpx;
+  color: red
+}
