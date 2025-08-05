@@ -6,7 +6,6 @@
   padding-top: 128rpx;
   box-sizing: border-box;
   height: 100%;
-  background-color: pink;
 }
 
 /* 确保scroll-view可以正常工作 */
@@ -19,5 +18,4 @@ scroll-view.container {
 }
 .cognitive-step-container {
   width: 100%;
-  background: red;
 }
