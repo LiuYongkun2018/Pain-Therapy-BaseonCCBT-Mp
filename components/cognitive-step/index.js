@@ -12,12 +12,19 @@ Component({
     currentSubIndex: -1,      // 当前子项索引 (-1表示显示标题)
     displayedItems: [],       // 已显示的项目
     totalItems: 0,           // 总项目数
-    currentProgress: 0       // 当前进度
+    currentProgress: 0,      // 当前进度
+    scrollTop: 0             // 滚动位置
   },
 
   lifetimes: {
     attached() {
       this.calculateTotalItems();
+      // 延迟初始化，确保在手机上正确显示
+      setTimeout(() => {
+        if (this.data.steps && this.data.steps.length > 0) {
+          this.initializeDisplay();
+        }
+      }, 100);
     }
   },
 
@@ -53,7 +60,8 @@ Component({
             stepIndex: 0,
             subIndex: -1
           }],
-          currentProgress: 1
+          currentProgress: 1,
+          scrollTop: 0 // 初始化时滚动到顶部
         });
       }
     },

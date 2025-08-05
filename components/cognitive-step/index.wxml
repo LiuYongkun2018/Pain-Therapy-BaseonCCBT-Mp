@@ -12,7 +12,15 @@
   </view>
 
   <!-- 学习内容 -->
-  <scroll-view scroll-y="{{true}}" class="content-container">
+  <scroll-view 
+    scroll-y="{{true}}" 
+    scroll-top="{{scrollTop}}"
+    scroll-with-animation="{{true}}"
+    scroll-animation-duration="300"
+    enhanced="{{true}}"
+    bounces="{{false}}"
+    class="content-container"
+  >
     <view 
       wx:for="{{displayedItems}}" 
       wx:key="{{index}}"
