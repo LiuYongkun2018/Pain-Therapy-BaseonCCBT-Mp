@@ -36,9 +36,25 @@
       </view>
     </view>
   </view>
-  <!-- 完成提示 -->
-  <view wx:if="{{currentProgress === 100}}" class="completion-message">
-    <view class="completion-icon">✓</view>
-    <view class="completion-text">恭喜！您已完成所有认知学习内容</view>
+</view>
+
+<!-- 完成弹窗 -->
+<view wx:if="{{showCompletionModal}}" class="modal-overlay" bindtap="hideCompletionModal">
+  <view class="modal-container" catchtap="preventClose">
+    <view class="modal-content">
+      <view class="modal-icon">🎉</view>
+      <view class="modal-title">恭喜完成！</view>
+      <view class="modal-text">您已完成所有认知学习内容</view>
+      <view class="modal-progress">
+        <view class="modal-progress-text">学习进度：{{currentProgress}}%</view>
+        <view class="modal-progress-bar">
+          <view class="modal-progress-fill" style="width: {{currentProgress}}%"></view>
+        </view>
+      </view>
+      <view class="modal-buttons">
+        <button class="modal-btn secondary" bindtap="hideCompletionModal">查看内容</button>
+        <button class="modal-btn primary" bindtap="confirmCompletion">继续学习</button>
+      </view>
+    </view>
   </view>
 </view>

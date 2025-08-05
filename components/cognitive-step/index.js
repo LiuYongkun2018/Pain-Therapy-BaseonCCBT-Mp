@@ -13,7 +13,8 @@ Component({
     displayedItems: [],       // 已显示的项目
     totalItems: 0,           // 总项目数
     currentProgress: 0,      // 当前进度
-    scrollTop: 0             // 滚动位置
+    scrollTop: 0,            // 滚动位置
+    showCompletionModal: false // 是否显示完成弹窗
   },
 
   lifetimes: {
@@ -136,7 +137,66 @@ Component({
       this.setData({
         displayedItems: newDisplayedItems,
         currentProgress: progress
+      }, () => {
+        // 数据更新后自动滚动到底部
+        this.scrollToBottom();
+        
+        // 如果进度达到100%，显示完成弹窗
+        if (progress === 100) {
+          setTimeout(() => {
+            this.showCompletionModal();
+          }, 500); // 延迟500ms显示弹窗，让用户看到最后一个内容
+        }
       });
+    },
+
+    // 滚动到底部
+    scrollToBottom() {
+      setTimeout(() => {
+        const query = this.createSelectorQuery();
+        query.select('.content-container').scrollOffset((res) => {
+          if (res && res.scrollHeight) {
+            this.setData({
+              scrollTop: res.scrollHeight
+            });
+          } else {
+            this.setData({
+              scrollTop: this.data.scrollTop === 99999 ? 99998 : 99999
+            });
+          }
+        }).exec();
+      }, 200);
+    },
+
+    // 显示完成弹窗
+    showCompletionModal() {
+      this.setData({
+        showCompletionModal: true
+      });
+    },
+
+    // 隐藏完成弹窗
+    hideCompletionModal() {
+      this.setData({
+        showCompletionModal: false
+      });
+    },
+
+    // 确认完成
+    confirmCompletion() {
+      this.setData({
+        showCompletionModal: false
+      });
+      // 触发完成事件
+      this.triggerEvent('completed', {
+        progress: this.data.currentProgress,
+        totalItems: this.data.totalItems
+      });
+    },
+
+    // 阻止弹窗关闭（点击弹窗内容区域时）
+    preventClose() {
+      // 空方法，用于阻止事件冒泡
     }
   }
 })

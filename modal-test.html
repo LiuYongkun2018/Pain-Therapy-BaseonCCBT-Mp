@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完成弹窗测试</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
+        
+        .page {
+            height: 100vh;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .test-btn {
+            padding: 12px 24px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .test-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* 弹窗样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal-overlay.hidden {
+            display: none;
+        }
+        
+        .modal-container {
+            width: 90%;
+            max-width: 400px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            animation: scaleIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            padding: 32px 24px 24px 24px;
+            text-align: center;
+        }
+        
+        .modal-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: bounce 0.6s ease-out 0.3s both;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        
+        .modal-text {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .modal-progress {
+            margin-bottom: 32px;
+        }
+        
+        .modal-progress-text {
+            font-size: 14px;
+            color: #999999;
+            margin-bottom: 12px;
+        }
+        
+        .modal-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .modal-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            border-radius: 3px;
+            width: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            height: 44px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-btn.secondary {
+            background: #f8f9fa;
+            color: #666666;
+        }
+        
+        .modal-btn.secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .modal-btn.secondary:active {
+            transform: scale(0.98);
+        }
+        
+        .modal-btn.primary {
+            background: linear-gradient(135deg, #007AFF 0%, #5856d6 100%);
+            color: #ffffff;
+        }
+        
+        .modal-btn.primary:hover {
+            background: linear-gradient(135deg, #0056b3 0%, #4c4bc7 100%);
+        }
+        
+        .modal-btn.primary:active {
+            transform: scale(0.98);
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            40%, 43% {
+                transform: translate3d(0, -8px, 0);
+            }
+            70% {
+                transform: translate3d(0, -4px, 0);
+            }
+            90% {
+                transform: translate3d(0, -2px, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>认知学习完成弹窗测试</h1>
+        <button class="test-btn" onclick="showModal()">显示完成弹窗</button>
+        <p>点击按钮查看弹窗效果</p>
+    </div>
+    
+    <!-- 完成弹窗 -->
+    <div id="modal" class="modal-overlay hidden" onclick="hideModal()">
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <div class="modal-content">
+                <div class="modal-icon">🎉</div>
+                <div class="modal-title">恭喜完成！</div>
+                <div class="modal-text">您已完成所有认知学习内容</div>
+                <div class="modal-progress">
+                    <div class="modal-progress-text">学习进度：100%</div>
+                    <div class="modal-progress-bar">
+                        <div class="modal-progress-fill"></div>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn secondary" onclick="hideModal()">查看内容</button>
+                    <button class="modal-btn primary" onclick="confirmCompletion()">继续学习</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('hidden');
+        }
+        
+        function hideModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        }
+        
+        function confirmCompletion() {
+            alert('继续学习被点击！');
+            hideModal();
+        }
+    </script>
+</body>
+</html>
