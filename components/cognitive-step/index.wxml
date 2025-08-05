@@ -5,40 +5,38 @@
     <view class="progress-label">学习进度</view>
     <view class="progress-wrapper">
       <view class="progress-bar">
-        <view class="progress-fill" style="width: {{currentProgress}}%"></view>
+        <view class="progress-fill" style="width: {{currentProgress}}%">
+        </view>
       </view>
       <view class="progress-text">{{currentProgress}}%</view>
     </view>
   </view>
-
   <!-- 学习内容 -->
-  <scroll-view 
-    scroll-y="{{true}}" 
+  <scroll-view
+    scroll-y="{{true}}"
     scroll-top="{{scrollTop}}"
     scroll-with-animation="{{true}}"
     scroll-animation-duration="300"
     enhanced="{{true}}"
     bounces="{{false}}"
-    class="content-container"
-  >
-    <view 
-      wx:for="{{displayedItems}}" 
+    class="content-container">
+    <view
+      wx:for="{{displayedItems}}"
       wx:key="{{index}}"
       class="content-item {{item.type}}-item {{index === displayedItems.length - 1 ? 'active' : 'completed'}}"
       data-step-index="{{item.stepIndex}}"
       data-sub-index="{{item.subIndex}}"
-      bindtap="onItemClick"
-    >
+      bindtap="onItemClick">
       <view class="item-indicator">
-        <view class="indicator-dot {{item.type === 'title' ? 'title-dot' : 'sub-dot'}}"></view>
-        <view wx:if="{{index < displayedItems.length - 1}}" class="indicator-line"></view>
+        <view class="indicator-dot {{item.type === 'title' ? 'title-dot' : 'sub-dot'}}">
+        </view>
+        <view wx:if="{{index < displayedItems.length - 1}}" class="indicator-line">
+        </view>
       </view>
-      
       <view class="item-content">
         <view class="item-text {{item.type === 'title' ? 'title-text' : 'sub-text'}}">
           {{item.content}}
         </view>
-        
         <!-- 点击提示 -->
         <view wx:if="{{index === displayedItems.length - 1 && currentProgress < 100}}" class="click-hint">
           <text class="hint-text">点击继续</text>
@@ -46,7 +44,6 @@
         </view>
       </view>
     </view>
-
     <!-- 完成提示 -->
     <view wx:if="{{currentProgress === 100}}" class="completion-message">
       <view class="completion-icon">✓</view>

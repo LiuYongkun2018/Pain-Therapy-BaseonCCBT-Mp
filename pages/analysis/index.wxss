@@ -3,11 +3,10 @@
   width: 100%;
   background: #f8f9fa;
   padding: 0;
-  height: calc(100vh - 128rpx - 98rpx); /* 减去导航栏高度和底部tabBar高度 */
   padding-top: 128rpx;
-  padding-bottom: 98rpx; /* tabBar高度 */
   box-sizing: border-box;
-  min-height: 400rpx; /* 设置最小高度 */
+  height: 100%;
+  background-color: pink;
 }
 
 /* 确保scroll-view可以正常工作 */
@@ -19,6 +18,6 @@ scroll-view.container {
   bottom: 98rpx; /* 留出tabBar空间 */
 }
 .cognitive-step-container {
-    width: 100%;
-      background: red;
+  width: 100%;
+  background: red;
 }
