@@ -2,9 +2,13 @@
 
 .quiz-container {
     width: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
     padding: 24rpx;
+    padding-bottom: 120rpx; /* 增加底部padding，确保按钮可点击 */
     background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 进度显示 */
@@ -29,6 +33,10 @@
     border-radius: 16rpx;
     padding: 40rpx;
     box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40rpx; /* 与按钮容器的间距 */
 }
 
 /* 题目文本 */
@@ -42,10 +50,11 @@
 
 /* 选项容器 */
 .options-container {
-    margin-bottom: 40rpx;
+    margin-bottom: 20rpx; /* 减少底部边距 */
     display: flex;
     flex-direction: column;
     gap: 15rpx;
+    flex-shrink: 0; /* 防止被压缩 */
 }
 
 /* 选项样式 */
@@ -105,11 +114,13 @@
 
 /* 解释区域样式 */
 .explanation-container {
-    margin-top: 30rpx;
+    margin-top: 20rpx; /* 减少顶部边距 */
+    margin-bottom: 20rpx; /* 减少底部边距 */
     padding: 30rpx;
     background-color: #f8f9ff;
     border-radius: 12rpx;
     border-left: 4rpx solid #007aff;
+    flex-shrink: 0; /* 防止被压缩 */
 }
 
 .explanation-title {
@@ -128,25 +139,32 @@
 /* 按钮容器 */
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 20rpx;
     flex-wrap: wrap;
+    margin-top: auto; /* 推到底部 */
+    padding: 20rpx 0 40rpx 0; /* 增加上下padding */
+    background-color: #f8f9fa; /* 确保背景一致 */
+    position: relative; /* 确保在最上层 */
+    z-index: 10;
 }
 
 /* 导航按钮 */
 .nav-button {
     min-width: 160rpx;
-    height: 80rpx;
+    height: 88rpx; /* 增加按钮高度 */
     font-size: 28rpx;
-    border-radius: 40rpx;
+    border-radius: 44rpx; /* 调整圆角 */
     border: none;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0;
+    padding: 12rpx 24rpx; /* 增加padding提升点击体验 */
+    margin: 8rpx; /* 增加外边距避免误触 */
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1); /* 添加阴影提升视觉层次 */
+    transition: all 0.3s ease;
 }
 
 /* 上一题按钮 */
@@ -193,10 +211,13 @@
 @media (max-width: 480px) {
     .quiz-container {
         padding: 20rpx;
+        padding-bottom: 140rpx; /* 手机端增加更多底部空间 */
+        min-height: 100vh;
     }
 
     .question-card {
         padding: 30rpx;
+        margin-bottom: 30rpx;
     }
 
     .question-text {
@@ -208,13 +229,39 @@
     }
 
     .button-container {
-        flex-direction: column;
+        flex-direction: row; /* 保持横向排列 */
         gap: 15rpx;
+        padding: 30rpx 0 60rpx 0; /* 增加底部padding */
+        position: sticky; /* 粘性定位 */
+        bottom: 0;
+        background-color: #f8f9fa;
+        border-top: 1rpx solid #e9ecef; /* 添加顶部边框 */
     }
 
     .nav-button {
-        width: 100%;
-        height: 88rpx;
+        flex: 1; /* 平分宽度 */
+        max-width: 200rpx; /* 限制最大宽度 */
+        height: 96rpx; /* 增加按钮高度 */
         font-size: 30rpx;
+        margin: 4rpx;
+    }
+}
+
+/* 确保在所有情况下按钮都可点击 */
+.nav-button:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* 为手机端添加额外的安全区域 */
+@supports (padding: max(0px)) {
+    .quiz-container {
+        padding-bottom: max(120rpx, env(safe-area-inset-bottom) + 120rpx);
+    }
+    
+    @media (max-width: 480px) {
+        .button-container {
+            padding-bottom: max(60rpx, env(safe-area-inset-bottom) + 60rpx);
+        }
     }
 }
