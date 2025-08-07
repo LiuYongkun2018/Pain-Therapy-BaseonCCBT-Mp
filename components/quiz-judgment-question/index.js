@@ -133,7 +133,7 @@ Component({
       });
 
       // 检查答案是否正确
-      this.checkAnswer(currentQuestion, option);
+      // this.checkAnswer(currentQuestion, option);
     },
 
     /**
